@@ -1,0 +1,105 @@
+Descriptive Programming Scripts for Citi Application:
+
+
+1) Verify user is able to login successfully
+
+"Launch Browser with Citi url.
+SystemUtil.Run "iexplore.exe","http:Citi.com"
+
+
+
+2) Verify Username,Password and Login link exist.
+
+If Browser("title:= Citi - Login").Page("title:=Citi -
+
+Login).WebEdit("name:=username").Exist(0) 
+
+Then
+
+Reporter.ReportEvent micPass, "Username field","Username edit field is exist"
+
+If Browser("title:= Citi - Login").Page("title:=Citi -
+
+Login).WebEdit("name:=pwd").Exist(0) 
+
+Then
+
+Reporter.ReportEvent micPass, "Password field","Password edit field is exist"
+
+If Browser("title:= Citi - Login").Page("title:=Citi -
+
+Login).Link("name:=Login").Exist(0) 
+
+Then
+
+Reporter.ReportEvent micPass, "Login Link","login Link exist"
+
+Else
+
+Reporter.ReportEvent micPass, "Login Link","login Link does not exist"
+
+End if
+
+Else
+
+Reporter.ReportEvent micPass, "Password field","Password edit field does not exist"
+
+End if
+
+Else
+
+Reporter.ReportEvent micPass, "Username field","Username edit field does not exist"
+
+End if
+
+
+
+
+Descriptive Programming Scripts for Facebook Application:
+
+
+'open facebook.com
+systemUtil.Run("http://www.facebook.com")
+
+
+
+set BRO =Description.Create()
+BRO("title").Value = "Welcome to facebook.com"
+BRO("name").value ="Welcome to facebook.com"
+BRO("openedbytestingtool").value= true
+
+
+Set PG =Description.Create()
+PG("title").value="Welcome to facebook.com"
+PG("url").value="http://welcome to facebook.com"
+
+Set UN =Description.Create()
+UN("name").value= "login"
+UN("Class Name").value ="WebEdit"
+UN("type").value= "text"
+
+Set PWD =Description.Create()
+PWD("name").value ="passwd"
+PWD("Class Name").value="WebEdit"
+PWD("type").value="password"
+
+Set Login =Description.Create()
+Login("name").value ="Go"
+Login("Class Name").value="WebButton"
+Login("type").value="submit"
+Login("html tag").value="INPUT"
+Login("value").value="GO"
+Login("class").value="facebookgobtn"
+
+temp= Browser("Welcome to facebook.com").Page("Welcome to 
+facebook.com").WebEdit("Email or Phone").Exist
+If temp= true Then
+'Browser("Welcome to Facebook.com").Page("Welcome to 
+Facebook.com").WebEdit("Email or Phone").
+End If
+
+
+Browser(BRO).Page(PG).WebEdit(UN).Set "swathy@yahoo.com" 
+Browser(BRO).Page(PG).WebEdit(PWD).Set "hello123" 
+Browser(BRO).Page(PG).WebButton(Login).Click 
+
